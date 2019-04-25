@@ -1,0 +1,27 @@
+{% extends "team/layout.html" %}
+{% block title %}
+Team List
+{% endblock %}
+{% block content %}
+<h2> Team List </h2>
+    {% if team_list %}
+    <table class="team_list">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Skill</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for team in team_list %}
+            <tr>
+                <td>{{ team.name }}</td>
+                <td>{{ team.skill }}</td>
+            </tr>
+            {% endfor %}        
+        </tbody>
+    </table>
+    {% else %}
+        <p>No Teams Yet</p>
+    {% endif %}
+{% endblock %}

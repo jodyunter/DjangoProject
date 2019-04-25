@@ -16,10 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from sports.urls import team_list_view
+from sports import views as sportsviews
 
 urlpatterns = [    
     path("hello/", include("hello.urls")),    
-    path("team/", include("team.urls")),
+    #path(r'^team/$', include("sports.urls")),   
+    path("team/", team_list_view, name="team_list"), 
+    path("team/create/", sportsviews.create, name="create"), 
 ]
 
 urlpatterns += staticfiles_urlpatterns()
